@@ -18,13 +18,14 @@ set "TAG=#SOCIALBLOCK"
 :: --- One-time backup of the original hosts file ---
 if not exist "%HOSTS%.bak" copy "%HOSTS%" "%HOSTS%.bak" >nul
 
-:: --- Remove old entries added by this script (if any) ---
-attrib -r "%HOSTS%"
-findstr /v /c:"%TAG%" "%HOSTS%" > "%TEMP%\hosts.tmp"
-copy /y "%TEMP%\hosts.tmp" "%HOSTS%" >nul
+:: --- Build the new hosts file in a temp file first ---
+:: (old entries added by this script are dropped, then the list is re-added)
+set "NEW=%TEMP%\hosts.tmp"
+attrib -r "%HOSTS%" >nul 2>&1
+findstr /v /c:"%TAG%" "%HOSTS%" > "%NEW%"
 
 :: --- Sites to block (add or remove names here) ---
->>"%HOSTS%" echo.
+>>"%NEW%" echo.
 for %%D in (
     youtube.com www.youtube.com m.youtube.com music.youtube.com youtu.be youtube-nocookie.com www.youtube-nocookie.com youtubei.googleapis.com
     facebook.com www.facebook.com m.facebook.com web.facebook.com mbasic.facebook.com fb.com www.fb.com messenger.com www.messenger.com
@@ -35,12 +36,35 @@ for %%D in (
     snapchat.com www.snapchat.com web.snapchat.com
     reddit.com www.reddit.com old.reddit.com
     pinterest.com www.pinterest.com
-) do >>"%HOSTS%" echo 0.0.0.0 %%D %TAG%
+) do >>"%NEW%" echo 0.0.0.0 %%D %TAG%
+
+:: --- Write it over the real hosts file, and check that it really worked ---
+copy /y "%NEW%" "%HOSTS%" >nul 2>&1
+if errorlevel 1 goto :failed
+findstr /c:"%TAG%" "%HOSTS%" >nul 2>&1
+if errorlevel 1 goto :failed
 
 ipconfig /flushdns >nul
 
 echo.
 echo  Done - social media and YouTube are now blocked on this PC.
-echo  Close and reopen any open browsers.
+echo  Close ALL browser windows and reopen them.
 echo.
 pause
+exit /b 0
+
+:failed
+echo.
+echo  FAILED - Windows refused to change the hosts file. NOTHING is blocked.
+echo.
+echo  The script is running as Administrator, so something else is
+echo  protecting this file:
+echo    %HOSTS%
+echo.
+echo  Most likely your antivirus. Look for a setting like
+echo  "protect hosts file" / "self-defense" / "ransomware protection" /
+echo  "controlled folder access", turn it off or allow this script,
+echo  then run this file again.
+echo.
+pause
+exit /b 1
