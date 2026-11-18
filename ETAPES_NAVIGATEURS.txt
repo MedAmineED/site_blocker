@@ -1,0 +1,125 @@
+============================================================
+ BLOQUER LES RESEAUX SOCIAUX ET YOUTUBE DANS LES NAVIGATEURS
+ Chrome, Edge et Firefox - sans toucher a l'antivirus
+============================================================
+
+Cette methode ne modifie pas le fichier hosts. Elle ajoute une
+regle officielle "d'entreprise" dans chaque navigateur, via le
+registre Windows. Il n'y a donc pas besoin d'arreter l'antivirus.
+
+Il faut un compte administrateur sur le PC.
+
+Limite : seuls Chrome, Edge et Firefox sont bloques. Un autre
+navigateur (Opera, Brave...) installe sur le PC ne le sera pas.
+
+
+METHODE RAPIDE (fichier .reg)
+-----------------------------
+1. Copiez le fichier "blocage_navigateurs.reg" sur le PC.
+2. Double-cliquez dessus.
+3. Repondez "Oui" aux deux questions de Windows.
+4. Fermez TOUTES les fenetres des navigateurs et rouvrez-les.
+5. Passez a la partie "VERIFIER" plus bas.
+
+Si le double-clic est refuse, utilisez la methode manuelle.
+
+
+METHODE MANUELLE (copier-coller dans cmd)
+-----------------------------------------
+1. Menu Demarrer, tapez : cmd
+   Clic droit sur "Invite de commandes", puis
+   "Executer en tant qu'administrateur".
+
+2. Copiez le bloc du navigateur voulu ci-dessous (ou les trois),
+   collez-le dans la fenetre noire, puis appuyez sur Entree.
+   Chaque ligne doit repondre :
+   "L'operation a reussi."
+
+3. Fermez TOUTES les fenetres des navigateurs et rouvrez-les.
+
+
+--- CHROME ---
+
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 1 /t REG_SZ /d "youtube.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 2 /t REG_SZ /d "youtu.be" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 3 /t REG_SZ /d "youtube-nocookie.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 4 /t REG_SZ /d "facebook.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 5 /t REG_SZ /d "fb.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 6 /t REG_SZ /d "messenger.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 7 /t REG_SZ /d "instagram.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 8 /t REG_SZ /d "threads.net" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 9 /t REG_SZ /d "threads.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 10 /t REG_SZ /d "tiktok.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 11 /t REG_SZ /d "x.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 12 /t REG_SZ /d "twitter.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 13 /t REG_SZ /d "snapchat.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 14 /t REG_SZ /d "reddit.com" /f
+reg add "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /v 15 /t REG_SZ /d "pinterest.com" /f
+
+
+--- EDGE ---
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 1 /t REG_SZ /d "youtube.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 2 /t REG_SZ /d "youtu.be" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 3 /t REG_SZ /d "youtube-nocookie.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 4 /t REG_SZ /d "facebook.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 5 /t REG_SZ /d "fb.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 6 /t REG_SZ /d "messenger.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 7 /t REG_SZ /d "instagram.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 8 /t REG_SZ /d "threads.net" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 9 /t REG_SZ /d "threads.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 10 /t REG_SZ /d "tiktok.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 11 /t REG_SZ /d "x.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 12 /t REG_SZ /d "twitter.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 13 /t REG_SZ /d "snapchat.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 14 /t REG_SZ /d "reddit.com" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /v 15 /t REG_SZ /d "pinterest.com" /f
+
+
+--- FIREFOX ---
+
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 1 /t REG_SZ /d "*://*.youtube.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 2 /t REG_SZ /d "*://*.youtu.be/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 3 /t REG_SZ /d "*://*.youtube-nocookie.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 4 /t REG_SZ /d "*://*.facebook.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 5 /t REG_SZ /d "*://*.fb.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 6 /t REG_SZ /d "*://*.messenger.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 7 /t REG_SZ /d "*://*.instagram.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 8 /t REG_SZ /d "*://*.threads.net/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 9 /t REG_SZ /d "*://*.threads.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 10 /t REG_SZ /d "*://*.tiktok.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 11 /t REG_SZ /d "*://*.x.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 12 /t REG_SZ /d "*://*.twitter.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 13 /t REG_SZ /d "*://*.snapchat.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 14 /t REG_SZ /d "*://*.reddit.com/*" /f
+reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /v 15 /t REG_SZ /d "*://*.pinterest.com/*" /f
+
+
+VERIFIER
+--------
+Ouvrez un site bloque, par exemple www.youtube.com : le
+navigateur doit afficher une page disant que le site est bloque
+par l'administrateur.
+
+Pour voir la regle dans chaque navigateur, tapez dans la barre
+d'adresse :
+  Chrome  : chrome://policy
+  Edge    : edge://policy
+  Firefox : about:policies
+
+La liste des sites doit y apparaitre (URLBlocklist pour Chrome
+et Edge, WebsiteFilter pour Firefox). Si elle est vide, cliquez
+sur "Recharger les regles" ou redemarrez le PC.
+
+
+POUR DEBLOQUER PLUS TARD
+------------------------
+Double-cliquez sur "deblocage_navigateurs.reg", ou collez ces
+lignes dans cmd en administrateur, puis rouvrez les navigateurs :
+
+reg delete "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /f
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /f
+reg delete "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /f
+
+Attention : cela supprime toute la liste de blocage du
+navigateur, y compris des sites ajoutes par quelqu'un d'autre.

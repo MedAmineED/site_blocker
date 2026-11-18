@@ -1,0 +1,62 @@
+Windows Registry Editor Version 5.00
+
+; Bloque les reseaux sociaux et YouTube dans Chrome, Edge et Firefox.
+; Double-cliquez, acceptez, puis fermez et rouvrez les navigateurs.
+
+; --- Chrome ---
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\URLBlocklist]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\URLBlocklist]
+"1"="youtube.com"
+"2"="youtu.be"
+"3"="youtube-nocookie.com"
+"4"="facebook.com"
+"5"="fb.com"
+"6"="messenger.com"
+"7"="instagram.com"
+"8"="threads.net"
+"9"="threads.com"
+"10"="tiktok.com"
+"11"="x.com"
+"12"="twitter.com"
+"13"="snapchat.com"
+"14"="reddit.com"
+"15"="pinterest.com"
+
+; --- Edge ---
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist]
+"1"="youtube.com"
+"2"="youtu.be"
+"3"="youtube-nocookie.com"
+"4"="facebook.com"
+"5"="fb.com"
+"6"="messenger.com"
+"7"="instagram.com"
+"8"="threads.net"
+"9"="threads.com"
+"10"="tiktok.com"
+"11"="x.com"
+"12"="twitter.com"
+"13"="snapchat.com"
+"14"="reddit.com"
+"15"="pinterest.com"
+
+; --- Firefox ---
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block]
+"1"="*://*.youtube.com/*"
+"2"="*://*.youtu.be/*"
+"3"="*://*.youtube-nocookie.com/*"
+"4"="*://*.facebook.com/*"
+"5"="*://*.fb.com/*"
+"6"="*://*.messenger.com/*"
+"7"="*://*.instagram.com/*"
+"8"="*://*.threads.net/*"
+"9"="*://*.threads.com/*"
+"10"="*://*.tiktok.com/*"
+"11"="*://*.x.com/*"
+"12"="*://*.twitter.com/*"
+"13"="*://*.snapchat.com/*"
+"14"="*://*.reddit.com/*"
+"15"="*://*.pinterest.com/*"
+
