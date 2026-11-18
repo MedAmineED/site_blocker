@@ -1,0 +1,135 @@
+============================================================
+ BLOQUER LES RESEAUX SOCIAUX ET YOUTUBE - ETAPES MANUELLES
+ (pour les PC dont l'antivirus protege le fichier hosts)
+============================================================
+
+Sur ces PC, le Bloc-notes sera refuse lui aussi tant que
+l'antivirus protege le fichier. Il faut donc d'abord mettre
+la protection en pause.
+
+
+ETAPE 1 - Mettre l'antivirus en pause
+-------------------------------------
+Ouvrez l'antivirus et desactivez pendant quelques minutes le
+reglage qui protege les fichiers systeme. Son nom varie :
+  - "protection du fichier hosts"
+  - "auto-defense" / "autoprotection"
+  - "protection contre les ransomwares"
+  - "acces controle aux dossiers"
+Si vous ne le trouvez pas, mettez toute la protection en temps
+reel en pause pendant 10 minutes.
+
+
+ETAPE 2 - Ouvrir le Bloc-notes en administrateur
+------------------------------------------------
+Menu Demarrer, tapez : notepad
+Clic droit sur "Bloc-notes", puis
+"Executer en tant qu'administrateur".
+
+
+ETAPE 3 - Ouvrir le fichier hosts
+---------------------------------
+Dans le Bloc-notes : Fichier > Ouvrir.
+Collez ce chemin dans la case "Nom du fichier", puis Entree :
+
+C:\Windows\System32\drivers\etc\hosts
+
+
+ETAPE 4 - Coller les lignes a la fin du fichier
+-----------------------------------------------
+Allez tout en bas du fichier, collez les lignes ci-dessous,
+puis enregistrez avec Ctrl+S.
+
+0.0.0.0 youtube.com
+0.0.0.0 www.youtube.com
+0.0.0.0 m.youtube.com
+0.0.0.0 music.youtube.com
+0.0.0.0 youtu.be
+0.0.0.0 youtube-nocookie.com
+0.0.0.0 www.youtube-nocookie.com
+0.0.0.0 youtubei.googleapis.com
+0.0.0.0 facebook.com
+0.0.0.0 www.facebook.com
+0.0.0.0 m.facebook.com
+0.0.0.0 web.facebook.com
+0.0.0.0 mbasic.facebook.com
+0.0.0.0 fb.com
+0.0.0.0 www.fb.com
+0.0.0.0 messenger.com
+0.0.0.0 www.messenger.com
+0.0.0.0 instagram.com
+0.0.0.0 www.instagram.com
+0.0.0.0 threads.net
+0.0.0.0 www.threads.net
+0.0.0.0 threads.com
+0.0.0.0 www.threads.com
+0.0.0.0 tiktok.com
+0.0.0.0 www.tiktok.com
+0.0.0.0 m.tiktok.com
+0.0.0.0 vm.tiktok.com
+0.0.0.0 x.com
+0.0.0.0 www.x.com
+0.0.0.0 twitter.com
+0.0.0.0 www.twitter.com
+0.0.0.0 mobile.twitter.com
+0.0.0.0 snapchat.com
+0.0.0.0 www.snapchat.com
+0.0.0.0 web.snapchat.com
+0.0.0.0 reddit.com
+0.0.0.0 www.reddit.com
+0.0.0.0 old.reddit.com
+0.0.0.0 pinterest.com
+0.0.0.0 www.pinterest.com
+
+Si le Bloc-notes affiche "Acces refuse" a l'enregistrement,
+l'antivirus protege encore le fichier : retournez a l'etape 1.
+
+Attention : utilisez bien Ctrl+S (et non "Enregistrer sous").
+Le fichier doit s'appeler "hosts", sans extension, et pas
+"hosts.txt".
+
+
+ETAPE 5 - Vider le cache DNS
+----------------------------
+Ouvrez l'invite de commandes (cmd) et tapez :
+
+ipconfig /flushdns
+
+
+ETAPE 6 - Verifier que ca marche
+--------------------------------
+Dans la meme fenetre cmd, tapez :
+
+ping www.youtube.com
+
+Le resultat doit montrer 0.0.0.0 ou echouer tout de suite.
+S'il affiche une vraie adresse IP, le fichier n'a pas ete
+enregistre : recommencez a partir de l'etape 1.
+
+
+ETAPE 7 - Reactiver l'antivirus
+-------------------------------
+Reactivez la protection, puis fermez TOUTES les fenetres du
+navigateur et rouvrez-le.
+
+
+A SURVEILLER
+------------
+- L'antivirus peut annuler la modification. Certains restaurent
+  le fichier hosts des que la protection est reactivee. Si les
+  sites remarchent apres l'etape 7, refaites le test de
+  l'etape 6 : une vraie adresse IP veut dire que l'antivirus a
+  remis l'ancien fichier. Dans ce cas, ajoutez le fichier hosts
+  aux exclusions de l'antivirus au lieu de simplement le mettre
+  en pause.
+
+- Raccourci : une fois l'antivirus en pause (etape 1), vous
+  pouvez lancer blocker.bat a la place des etapes 2 a 5. Il
+  fait la meme chose et affiche FAILED si l'ecriture est
+  refusee.
+
+
+POUR DEBLOQUER PLUS TARD
+------------------------
+Refaites les etapes 1 a 3, supprimez les lignes ajoutees a
+l'etape 4, enregistrez, puis refaites les etapes 5 et 7.
